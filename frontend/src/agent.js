@@ -3,9 +3,15 @@ import _superagent from "superagent";
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
+const IS_CODESPACES = process.env.REACT_APP_CODESPACES === "true";
+const CODESPACE_NAME = process.env.REACT_APP_CODESPACE_NAME;
+const CODESPACES_BACKEND_PORT = process.env.REACT_APP_CODESPACES_BACKEND_PORT;
+
 const API_ROOT =
   process.env.NODE_ENV !== "production"
-    ? "http://localhost:3000/api"
+    ? IS_CODESPACES
+      ? `https://${CODESPACE_NAME}-${CODESPACES_BACKEND_PORT}.githubpreview.dev`
+      : "http://localhost:3000/api"
     : "https://api.anythink.market/api";
 
 const encode = encodeURIComponent;

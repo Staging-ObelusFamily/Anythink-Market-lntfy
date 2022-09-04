@@ -1,0 +1,15 @@
+{
+
+    "name": "Anythink Development Container",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "args": { "VARIANT": "ubuntu-22.04" }
+    },
+    // "appPort": 3000,
+    "forwardPorts": [3000],
+    "postAttachCommand": ".devcontainer/setup.sh",
+    "features": {
+        "docker-in-docker": "latest",
+        "github-cli": "latest"
+    }
+}
