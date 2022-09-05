@@ -3,7 +3,7 @@ WILCO_ID="`cat .wilco`"
 
 if [[ "${GITHUB_REPOSITORY}" =~ "Staging-" ]]
   then
-    ENGINE_URL="https://engine-staging.wilco.gg/users/$WILCO_ID/event"
+    ENGINE_URL="https://liorwilco.ngrok.io/users/$WILCO_ID/event"
   else
     ENGINE_URL="https://engine.wilco.gg/users/$WILCO_ID/event"
 fi
